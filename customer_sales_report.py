@@ -1,7 +1,7 @@
-with open("sales.csv", "r") as in_file:
-    header = in_file.readline()
+with open("sales.csv", "r") as infile:
+    header = infile.readline()
     sales = {}
-    for line in in_file:
+    for line in infile:
         data = line.strip().split(",")
         customer_id = data[0]
         sales_amount = float(data[3])
@@ -14,7 +14,7 @@ with open("sales.csv", "r") as in_file:
                 "total_sales": sales_amount
             }
 
-with open("sales_report.csv", "w") as out_file:
-    out_file.write("CustomerID TotalSales\n")
+with open("sales_report.csv", "w") as outfile:
+    outfile.write("CustomerID TotalSales\n")
     for customer_id, data in sales.items():
-        out_file.write(f"{customer_id} {data['total_sales']:.2f}\n")
+        outfile.write(f"{customer_id} {data['total_sales']:.2f}\n")
